@@ -20,12 +20,12 @@ class RegistrationRoute extends Component {
           Practice learning a language with the spaced reptition revision technique.
         </p>
         <fieldset>
-          <legend>
-            <h2>Sign up</h2>
+        <legend>
+        <h2>Sign up</h2>
           </legend>
-          <RegistrationForm
-            onRegistrationSuccess={this.handleRegistrationSuccess}
-          />
+        <RegistrationForm
+          onRegistrationSuccess={this.handleRegistrationSuccess}
+        />
         </fieldset>
 
       </section >
