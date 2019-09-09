@@ -15,11 +15,11 @@ class RegistrationRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className='registration-container'>
         <p>
           Practice learning a language with the spaced reptition revision technique.
         </p>
-        <fieldset>
+        <fieldset className='registration'>
           <legend>
             <h2>Sign up</h2>
           </legend>
