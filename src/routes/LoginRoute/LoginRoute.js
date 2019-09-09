@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import LoginForm from '../../components/LoginForm/LoginForm'
-import './LoginRoute.css'
+import React, { Component } from 'react';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import './LoginRoute.css';
 
 class LoginRoute extends Component {
   static defaultProps = {
@@ -11,9 +11,9 @@ class LoginRoute extends Component {
   }
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
-    history.push(destination)
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || '/';
+    history.push(destination);
   }
 
   render() {
@@ -32,4 +32,4 @@ class LoginRoute extends Component {
   }
 }
 
-export default LoginRoute
+export default LoginRoute;

@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
-import './RegistrationRoute.css'
+import React, { Component } from 'react';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import './RegistrationRoute.css';
 
 class RegistrationRoute extends Component {
   static defaultProps = {
@@ -10,8 +10,8 @@ class RegistrationRoute extends Component {
   }
 
   handleRegistrationSuccess = () => {
-    const { history } = this.props
-    history.push('/login')
+    const { history } = this.props;
+    history.push('/login');
   }
 
   render() {
@@ -21,12 +21,12 @@ class RegistrationRoute extends Component {
           Practice learning a language with the spaced reptition revision technique.
         </p>
         <fieldset className='registration-fieldset'>
-        <legend>
-        <h2>Sign up</h2>
+          <legend>
+            <h2>Sign up</h2>
           </legend>
-        <RegistrationForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
+          <RegistrationForm
+            onRegistrationSuccess={this.handleRegistrationSuccess}
+          />
         </fieldset>
 
       </section >
@@ -34,4 +34,4 @@ class RegistrationRoute extends Component {
   }
 }
 
-export default RegistrationRoute
+export default RegistrationRoute;

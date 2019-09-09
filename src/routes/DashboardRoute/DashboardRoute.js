@@ -1,40 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import config from '../../config';
-import TokenService from '../../services/token-service';
-import WordTable from '../../components/WordTable/WordTable';
+// import TokenService from '../../services/token-service';
+import LanguageContext from '../../contexts/LanguageContext';
+import LanguageService from '../../services/language-service';
 
 class DashboardRoute extends Component {
 
-  constructor(props){
-    super(props)
+  static contextType = LanguageContext;
+
+  constructor(props) {
+    super(props);
     this.state = {
       error: null
-    }
+    };
   }
 
-  async componentDidMount(){
-
+  async componentDidMount() {
     try {
-    const data = await fetch(`${config.API_ENDPOINT}/language`, {
-      headers: {
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
-      }
-    })
+      const { language, words } = await LanguageService.getLanguage();
 
-    const languageData = await data.json()
+      this.context.setLanguage(language.name);
+      this.context.setWords(words);
 
-    console.log(languageData);
+      console.log(language.name, words);
     }
 
-    catch(e){
+    catch (e) {
       this.setState({
         error: e
-      })
+      });
     }
-
   }
-
-
 
   render() {
     return (
@@ -45,4 +41,4 @@ class DashboardRoute extends Component {
   }
 }
 
-export default DashboardRoute
+export default DashboardRoute;

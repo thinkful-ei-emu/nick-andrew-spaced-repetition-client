@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 
 class WordTable extends React.Component {
@@ -11,7 +11,7 @@ class WordTable extends React.Component {
 
     return(
       <div></div>
-    )
+    );
   }
 }
 
