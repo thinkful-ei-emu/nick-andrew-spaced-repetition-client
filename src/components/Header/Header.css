@@ -1,0 +1,35 @@
+.app-header {
+  text-align: center;
+  background-color: rgba(130, 180, 236, 0.733);
+  box-shadow: 0 5px 3px -3px rgba(87, 87, 87, 0.678);
+}
+
+.app-header > h1 {
+  padding-top: .5%;
+  margin-top: 0;
+  margin-bottom: .5%;
+}
+
+.app-header > h1 > a {
+  text-decoration: none;
+  color: rgb(33, 43, 71);
+}
+
+.app-header > h1 > a:hover {
+  color: rgb(50, 67, 114);
+}
+
+
+.app-header > nav {
+  text-align: right;
+  padding: .5%;
+}
+.app-header > nav > a {
+  text-decoration: none;
+  margin-right: 2%;
+  color: rgb(33, 43, 71);
+}
+
+.app-header > nav > a:hover {
+  color: rgb(50, 67, 114);
+}
