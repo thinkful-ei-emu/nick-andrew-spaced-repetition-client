@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
@@ -49,7 +50,7 @@ class LoginForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className='error'>{error}</p>}
         </div>
         <div>
           <Label htmlFor='login-username-input'>
@@ -76,6 +77,7 @@ class LoginForm extends Component {
         <Button type='submit'>
           Login
         </Button>
+      <span>Don't have an account? <Link to='/register'>Register here!</Link></span>
       </form>
     )
   }

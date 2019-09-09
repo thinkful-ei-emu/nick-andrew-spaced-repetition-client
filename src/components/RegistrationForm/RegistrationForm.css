@@ -4,12 +4,14 @@
 }
 
 .registration-fieldset {
+  box-shadow: 3px 3px 5px 1px rgba(87, 87, 87, 0.733);  
   min-width: 25%;
   border-radius: 5px;
 }
 
 .registration-form > div {
   display: flex;
+  align-items: center;
 }
 
 .registration-form > div > label {
@@ -23,7 +25,7 @@
   margin-bottom: 10px;
   height: 35px;
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(33, 43, 71);
   border-radius: 5px;
 }
 
@@ -44,8 +46,9 @@
   width: 80px;
   font-size: 16px;
   height: 30px;
+  border: none;
   border-radius: 5px;
-  background-color: rgb(108, 216, 108);
+  background-color: rgb(118, 224, 118);
   margin-top: 12px;
 }
 
@@ -53,8 +56,20 @@
   background-color: rgb(57, 204, 57);
 }
 
+.registration-footer > button:focus {
+  outline: none;
+  background-color: rgb(57, 204, 57);
+  box-shadow: 0 0 3px 1px rgb(57, 204, 57);
+}
+
 .registration-footer > a {
   font-size: 12px;
   text-decoration: none;
   margin-top: 10px;
 }
+
+.registration-footer > a:hover {
+  text-decoration: underline;
+}
+
+
