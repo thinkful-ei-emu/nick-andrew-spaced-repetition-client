@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import config from '../../config';
-// import TokenService from '../../services/token-service';
 import LanguageContext from '../../contexts/LanguageContext';
 import LanguageService from '../../services/language-service';
+import WordTable from '../../components/WordTable/WordTable';
+import { Link } from 'react-router-dom';
+import './DashboardRoute.css';
 
 class DashboardRoute extends Component {
 
@@ -11,7 +12,8 @@ class DashboardRoute extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null
+      error: null,
+      loaded: false,
     };
   }
 
@@ -22,9 +24,8 @@ class DashboardRoute extends Component {
       this.context.setLanguage(language.name);
       this.context.setWords(words);
 
-      console.log(language.name, words);
+      this.setState({ loaded: true, });
     }
-
     catch (e) {
       this.setState({
         error: e
@@ -32,12 +33,44 @@ class DashboardRoute extends Component {
     }
   }
 
+  calculateScore = (wordArr) => {
+    let score = 0;
+    wordArr.forEach(word => {
+      score += word.correct_count;
+    });
+
+    return score;
+  }
+
   render() {
-    return (
-      <section>
-        implement and style me
-      </section>
-    );
+    let { error, loaded } = this.state;
+    let language = this.context.language;
+    let score = this.calculateScore(this.context.words);
+
+    if (loaded) {
+      return (
+        <div className='dashboard-container'>
+          <section className='dashboard'>
+            <h2>{language}</h2>
+            <p>Total Score: {score}</p>
+            <WordTable />
+            <button><Link to='/learn'>Learn</Link></button>
+          </section>
+        </div>
+      );
+    } else {
+      return (
+        <div className='dashboard-container'>
+          <section className='dashboard'>
+            <div className='loading'>
+              
+            </div>
+          </section>
+        </div>
+
+      );
+    }
+
   }
 }
 
