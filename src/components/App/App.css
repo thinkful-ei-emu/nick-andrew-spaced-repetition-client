@@ -9,7 +9,7 @@ html {
 
 
 .loading {
-  border: 8px dotted rgb(33, 43, 71);
+  border: 15px groove rgb(52, 91, 199);
   border-radius: 50%;
   width: 100px;
   height: 100px;
