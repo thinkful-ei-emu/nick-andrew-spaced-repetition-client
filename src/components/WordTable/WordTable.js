@@ -13,9 +13,9 @@ class WordTable extends React.Component {
       if(word.correct_count === 0){
         ratio = 0;
       } else if(word.incorrect_count === 0 && word.correct_count !== 0) {
-        ratio = word.correct_count;
+        ratio = (word.correct_count).toFixed(2);
       } else {
-        ratio = word.correct_count / word.incorrect_count;
+        ratio = (word.correct_count / word.incorrect_count).toFixed(2);
       }
       return (
         <tr key={i} index={word.id}>

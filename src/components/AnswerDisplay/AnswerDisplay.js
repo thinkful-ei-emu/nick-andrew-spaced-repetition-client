@@ -8,22 +8,17 @@ class AnswerDisplay extends React.Component {
 
   
 
-  //userWord = year
-  // currWord = jahr
-  // wordsArr = array of word objects from context
+
+
   determineCorrect = (userWord, currWord, wordsArr) => {
     let searchWord = userWord.toLowerCase();
-    console.log(userWord, currWord, wordsArr);
-    
-    const answerObj = {isCorrect: false, compareWord: ''};
+
+    const answerObj = { isCorrect: false, compareWord: '' };
 
     for (let i = 0; i < wordsArr.length; i++) {
       if (currWord === wordsArr[i].original) {
         answerObj.compareWord = wordsArr[i].translation;
-        console.log('correct answer', answerObj.compareWord);
-      } else {
-        //throw error?
-      }
+      };
     }
 
     if (answerObj.compareWord.toLowerCase() === searchWord) {
@@ -38,24 +33,42 @@ class AnswerDisplay extends React.Component {
   render() {
     const { user_answer, currWord } = this.props;
     const wordArr = this.context.words;
-    let {isCorrect, compareWord} = this.determineCorrect(user_answer, currWord, wordArr);
-   
-    if(wordArr.length === 0){
-      return <p className='error'>Something went wrong, please refresh the homepage(dashboard) to continue</p>;
-    }
-    if (isCorrect){
+    let { isCorrect, compareWord } = this.determineCorrect(user_answer, currWord, wordArr);
+
+    if (wordArr.length === 0) {
       return (
-        <p>Correct!</p>
+        <div className='learn-word-container'>
+          <section className='answer-display'>
+            <p className='error'>Something went wrong, please refresh the homepage(dashboard) to continue</p>
+          </section>
+        </div>
+      );
+    }
+    if (isCorrect) {
+      return (
+        <div className='learn-word-container'>
+          <section className='answer-display'>
+            <p className='answer-correct'>Correct!</p>
+            <button onClick={this.props.handleNext}>Next</button>
+          </section>
+        </div>
       );
     } else {
       return (
-        <p>You answered {user_answer}. The correct answer was {compareWord}</p>
+        <div className='learn-word-container'>
+          <section className='answer-display'>
+            <p className='answer-incorrect'>
+              You answered <strong>{user_answer}</strong>. The correct answer was <strong>{compareWord}</strong>
+            </p>
+            <button onClick={this.props.handleNext}>Next</button>
+          </section>
+        </div>
       );
     }
-      
-  } 
 
-  
+  }
+
+
 
 
 }

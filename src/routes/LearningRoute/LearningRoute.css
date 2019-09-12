@@ -23,3 +23,45 @@
 .curr-word {
   font-size: 24px;
 }
+
+.answer-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(130, 180, 236, 0.733);
+  padding: 2% 5%;
+  margin-top: 3%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 1px rgba(87, 87, 87, 0.733); 
+}
+
+.answer-display > button {
+  width: 80px;
+  margin: 5% 0;
+  font-size: 16px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(108, 216, 108);
+  align-self: center;
+}
+
+.answer-display > button:focus {
+  outline: none;
+  background-color: rgb(57, 204, 57);
+  box-shadow: 0 0 3px 1px rgb(57, 204, 57);
+}
+
+.answer-display > button:hover {
+  background-color: rgb(57, 204, 57);
+  cursor: pointer;
+}
+
+.answer-correct {
+  font-size: 36px;
+}
+
+.answer-incorrect {
+  font-size: 18px;
+}

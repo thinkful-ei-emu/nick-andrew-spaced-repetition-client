@@ -33,9 +33,7 @@ class LanguageProvider extends React.Component {
    * @param {string} language
    */
   setLanguage = (language) => {
-    this.setState({ language }, () => {
-      console.log('language from context', this.state.language);
-    });
+    this.setState({ language });
   }
 
   /**
@@ -44,9 +42,7 @@ class LanguageProvider extends React.Component {
    * @param {array} words
    */
   setWords = (words) => {
-    this.setState({ words }, () => {
-      console.log('words from context', this.state.words);
-    });
+    this.setState({ words });
   }
 
   /**

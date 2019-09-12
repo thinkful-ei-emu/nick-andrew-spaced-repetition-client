@@ -38,40 +38,48 @@ class LearningRoute extends Component {
 
     const { user_guess } = ev.target;
 
-    console.log('user value', user_guess.value);
+    LanguageService.postUserGuess(user_guess.value)
+      .then(() => {
+        LanguageService.getLanguage()
+          .then(res => this.context.setWords(res.words));
+      });
 
     this.setState({
       user_answer: user_guess.value,
       hasAnswered: true,
     });
 
+  }
 
+  handleNext = (ev) => {
+    LanguageService.getLanguageHead()
+      .then(newHead => this.context.setCurrentWord(newHead))
+      .then(() => this.setState({
+        user_answer: '',
+        hasAnswered: false,
+      }));
   }
 
 
   render() {
     const currentWord = this.context.currentWord;
-    console.log('current word', currentWord);
     const { loaded, hasAnswered, user_answer } = this.state;
 
     if (!loaded || !currentWord) {
       return (
         <div className='learn-word-container'>
-          <section className='learn-word'>
-            <div className='loading'></div>
+          <section className='dashboard-loading'>
+            <div className='loading'><div className='inner-loading'></div></div>
           </section>
         </div>
       );
     } else if (hasAnswered) {
       return (
-        <div className='learn-word-container'>
-          <section className='learn-word'>
-            <AnswerDisplay
-              user_answer={user_answer}
-              currWord={currentWord.nextWord}
-            />
-          </section>
-        </div>
+        <AnswerDisplay
+          user_answer={user_answer}
+          currWord={currentWord.nextWord}
+          handleNext={this.handleNext}
+        />
       );
     } else {
       return (

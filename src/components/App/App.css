@@ -9,19 +9,41 @@ html {
 
 
 .loading {
-  border: 15px groove rgb(52, 91, 199);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px double rgb(108, 216, 108);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  animation: loading 1.8s linear infinite;
+  min-width: 100px;
+  min-height: 100px;
+  /* animation: loading 1.8s linear infinite; */
 }
 
-
-@keyframes loading {
+/* @keyframes loading {
   0% {
     transform: rotate(0deg);
+
   }
   100% {
     transform: rotate(360deg);    
   }
+} */
+
+.inner-loading {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  animation: inner-loading 2.0s ease-in-out infinite;
 }
+
+@keyframes inner-loading {
+  0% {
+    background-color: rgba(108, 216, 108, 0.185);
+    box-shadow: 0 0 3px 8px rgba(108, 216, 108, 0.185);
+  }
+  100% {
+    background-color: rgb(108, 216, 108);
+    box-shadow: 0 0 3px 8px rgb(108, 216, 108);
+  }
+}
+
