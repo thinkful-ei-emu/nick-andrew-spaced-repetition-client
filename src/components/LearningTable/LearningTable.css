@@ -1,0 +1,19 @@
+.learning-table-display {
+  display: flex;
+  justify-content: center;
+}
+
+.learning-table {
+  text-align: center;
+  color: rgb(33, 43, 71);
+  border-collapse: collapse;
+  background-color: rgb(240, 250, 255);
+  border-style: inset;
+}
+
+
+
+
+
+
+

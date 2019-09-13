@@ -33,3 +33,20 @@
 .app-header > nav > a:hover {
   color: rgb(50, 67, 114);
 }
+
+.logged-in {
+  min-height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logged-in > * {
+  font-size: 18px;
+  margin-right: 2%;
+}
+
+.logged-in > nav > a {
+  color: rgb(33, 43, 71);
+  text-decoration: none;
+}

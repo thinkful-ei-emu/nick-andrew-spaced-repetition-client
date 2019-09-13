@@ -52,7 +52,8 @@ class DashboardRoute extends Component {
         <div className='dashboard-container'>
           <section className='dashboard'>
             <h2>{language}</h2>
-            <p>Total Score: {score}</p>
+            {error && <p className='error'>{error}</p>}
+            <p>Total Score: <strong>{score}</strong></p>
             <WordTable />
             <button><Link to='/learn'>Learn</Link></button>
           </section>
@@ -61,9 +62,9 @@ class DashboardRoute extends Component {
     } else {
       return (
         <div className='dashboard-container'>
-          <section className='dashboard'>
+          <section className='dashboard-loading'>
             <div className='loading'>
-              
+              <div className='inner-loading'></div>
             </div>
           </section>
         </div>

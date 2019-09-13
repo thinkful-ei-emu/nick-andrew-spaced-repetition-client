@@ -7,7 +7,8 @@ const LanguageContext = React.createContext({
   currentWord: {},
   error: null,
   setLanguage: () => { },
-  setWords: () => { },
+  setWords: () => {},
+  setCurrentWord: () => {},
   nextWord: () => { },
   setError: () => { },
   clearError: () => { }
@@ -32,9 +33,7 @@ class LanguageProvider extends React.Component {
    * @param {string} language
    */
   setLanguage = (language) => {
-    this.setState({ language }, () => {
-      console.log('language from context', this.state.language);
-    });
+    this.setState({ language });
   }
 
   /**
@@ -43,8 +42,18 @@ class LanguageProvider extends React.Component {
    * @param {array} words
    */
   setWords = (words) => {
-    this.setState({ words }, () => {
-      console.log('words from context', this.state.words);
+    this.setState({ words });
+  }
+
+  /**
+   * sets the current word for the /learn route
+   * 
+   * @param {object} word
+   */
+
+  setCurrentWord = (word) => {
+    this.setState({
+      currentWord: word,
     });
   }
 
@@ -79,6 +88,7 @@ class LanguageProvider extends React.Component {
       currentWord: this.state.currentWord,
       error: this.state.error,
       setLanguage: this.setLanguage,
+      setCurrentWord: this.setCurrentWord,
       setWords: this.setWords,
       nextWord: this.nextWord,
       setError: this.setError,

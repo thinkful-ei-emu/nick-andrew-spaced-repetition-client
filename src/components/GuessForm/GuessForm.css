@@ -1,0 +1,52 @@
+.guess-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+}
+
+.guess-form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.guess-form-row > * {
+  margin-bottom: 3%;
+}
+
+
+.guess-form-row > input {
+  width: 80%;
+  height: 24px;
+  padding: 2px 5px;
+  align-self: center;
+  border: 1px solid rgb(33, 43, 71);
+  border-radius: 5px;
+}
+
+.guess-form > input:focus {
+  outline: none;
+  border: 1px solid rgba(130, 180, 236, 0.733);
+  box-shadow: 0 0 5px 1px rgba(130, 180, 236, 0.733);
+}
+
+.guess-form-row > button {
+  width: 80px;
+  margin: 5% 0;
+  font-size: 16px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(108, 216, 108);
+  align-self: center;
+}
+
+.guess-form-row > button:focus {
+  outline: none;
+  background-color: rgb(57, 204, 57);
+  box-shadow: 0 0 3px 1px rgb(57, 204, 57);
+}
+
+.guess-form-row > button:hover {
+  background-color: rgb(57, 204, 57);
+  cursor: pointer;
+}
