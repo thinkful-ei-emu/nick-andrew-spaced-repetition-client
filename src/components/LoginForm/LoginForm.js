@@ -77,7 +77,7 @@ class LoginForm extends Component {
         <Button type='submit'>
           Login
         </Button>
-        <span>Don't have an account? <Link to='/register'>Register here!</Link></span>
+        {/* <span>Don't have an account? <Link to='/register'>Register here!</Link></span> */}
       </form>
     );
   }

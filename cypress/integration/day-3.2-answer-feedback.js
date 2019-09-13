@@ -43,7 +43,7 @@ describe(`User story: Answer feedback`, function() {
       cy.wait('@languageHeadRequest')
 
       cy.get('main form').within($form => {
-        cy.get('input#learn-guess-input')
+        cy.get('input#user_guess')
           .type(guess)
 
         cy.get('button').click()
@@ -69,7 +69,7 @@ describe(`User story: Answer feedback`, function() {
         .as('postListGuessIncorrect')
 
       cy.login().visit(`/learn`).wait('@languageHeadRequest')
-      cy.get('input#learn-guess-input').type(guess)
+      cy.get('input#user_guess').type(guess)
       cy.get('form').submit().wait('@postListGuessIncorrect')
     })
 
@@ -123,7 +123,7 @@ describe(`User story: Answer feedback`, function() {
         .as('postListGuessCorrect')
 
       cy.login().visit(`/learn`).wait('@languageHeadRequest')
-      cy.get('input#learn-guess-input').type(guess)
+      cy.get('input#user_guess').type(guess)
       cy.get('form').submit().wait('@postListGuessCorrect')
     })
 

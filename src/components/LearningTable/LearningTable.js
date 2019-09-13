@@ -29,6 +29,8 @@ function LearningTable(props) {
           </tr>
         </tbody>
       </table>
+      <p>You have answered this word correctly {correct} times.</p> 
+      <p>You have answered this word incorrectly {incorrect} times.</p> 
     </div>
   );
 }
