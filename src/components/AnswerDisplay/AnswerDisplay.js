@@ -1,16 +1,9 @@
 import React from 'react';
 import LanguageContext from '../../contexts/LanguageContext';
-import LanguageService from '../../services/language-service';
 
 
 class AnswerDisplay extends React.Component {
-
   static contextType = LanguageContext;
-
-
-  
-  
-  
 
   determineCorrect = (userWord, translation) => {
     return userWord.toLowerCase() === translation;
@@ -18,27 +11,25 @@ class AnswerDisplay extends React.Component {
 
 
   render() {
-    console.log('props', this.props);
+    // console.log('props', this.props);
 
-    
     const { user_answer, currWord, totalScore, translation } = this.props;
-    
-    console.log(translation);
+
+    // console.log(translation);
 
     let isCorrect = this.determineCorrect(user_answer, translation);
-
 
     if (isCorrect) {
       return (
         <div className='learn-word-container'>
           <section className='answer-display'>
             <p className='answer-correct'>Correct!</p>
-            <button onClick={this.props.handleNext}>Next</button>
+            <button onClick={this.props.handleNext}>Try another word!</button>
           </section>
         </div>
       );
     } else {
-      console.log('translation', translation);
+      // console.log('translation', translation);
       return (
         <div className='learn-word-container'>
           <section className='DisplayScore'>
@@ -46,24 +37,17 @@ class AnswerDisplay extends React.Component {
             <p>Your total score is: {totalScore}</p>
 
 
-            <button onClick={this.props.handleNext}>Next</button>
+            <button onClick={this.props.handleNext}>Try another word!</button>
           </section>
           <section className='DisplayFeedback'>
             <p className='answer-incorrect'>
-              The correct translation for <strong>{currWord}</strong> was <strong>{translation}</strong> and you chose <strong>{user_answer}</strong>.
+              The correct translation for <strong>{currWord}</strong> was <strong>{translation}</strong> and you chose <strong>{user_answer}</strong>!
             </p>
           </section>
         </div>
       );
     }
-  
-
-
   }
-
-
-
-
 }
 
 

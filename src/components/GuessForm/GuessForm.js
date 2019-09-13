@@ -3,10 +3,6 @@ import './GuessForm.css';
 
 function GuessForm(props) {
 
-
-
-
-
   return (
     <form className='guess-form' onSubmit={props.handleSubmit}>
       <h2>Translate the word:</h2>

@@ -17,15 +17,17 @@ class LearningRoute extends Component {
       loaded: false,
       user_answer: '',
       hasAnswered: false,
+      answer: ''
     };
   }
+
 
   async componentDidMount() {
     try {
       let wordHead = await LanguageService.getLanguageHead();
       let { words } = await LanguageService.getLanguage();
 
-      console.log(wordHead);
+      console.log('wordhead', wordHead.nextWord);
 
       this.context.setCurrentWord(wordHead);
       this.context.setWords(words);
@@ -37,13 +39,18 @@ class LearningRoute extends Component {
     }
   }
 
+
   handleSubmitGuess = (ev) => {
     ev.preventDefault();
 
     const { user_guess } = ev.target;
 
     LanguageService.postUserGuess(user_guess.value)
-      .then(() => {
+      .then((data) => {
+        this.context.setCurrentWord({
+          ...this.context.currentWord,
+          translation: data.answer
+        });
         LanguageService.getLanguage()
           .then(res => this.context.setWords(res.words));
       });
@@ -52,8 +59,8 @@ class LearningRoute extends Component {
       user_answer: user_guess.value,
       hasAnswered: true,
     });
-
   }
+
 
   handleNext = (ev) => {
     LanguageService.getLanguageHead()
@@ -67,7 +74,7 @@ class LearningRoute extends Component {
 
   render() {
     const currentWord = this.context.currentWord;
-    console.log('current word', currentWord);
+    // console.log('current word', currentWord);
     const { loaded, hasAnswered, user_answer } = this.state;
 
     if (!loaded || !currentWord) {
@@ -104,7 +111,6 @@ class LearningRoute extends Component {
         </div>
       );
     }
-
   }
 }
 
