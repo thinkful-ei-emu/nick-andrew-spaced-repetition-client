@@ -17,7 +17,7 @@ class DashboardRoute extends Component {
     };
   }
 
-  async componentDidMount() {
+  async componentDidMount() { 
     try {
       const { language, words } = await LanguageService.getLanguage();
 

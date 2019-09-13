@@ -10,7 +10,7 @@ function GuessForm(props) {
   return (
     <form className='guess-form' onSubmit={props.handleSubmit}>
       <h2>Translate the word:</h2>
-      <span>{props.currWord}</span>
+      <span className='guess-form-current-word'><strong>{props.currWord}</strong></span>
       <div className='guess-form-row'>
         <label htmlFor='learn-guess-input'><span>What's the translation for this word?</span></label>
         <input type='text' id='user_guess' name='learn-guess-input' required></input>

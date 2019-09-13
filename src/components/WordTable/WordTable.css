@@ -1,7 +1,22 @@
 
 .word-table-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.word-table-container > h3 {
+  margin-bottom: 0;
+}
+
+.practice-list {
+  line-height: 1.5em;
+  padding: 0;
+  list-style: none;
+}
+
+.practice-list > li > h4 {
+  margin-bottom: 5px;
 }
 
 .word-table {
@@ -16,3 +31,4 @@ td, th {
   margin: none;
   padding: 3px;
 }
+

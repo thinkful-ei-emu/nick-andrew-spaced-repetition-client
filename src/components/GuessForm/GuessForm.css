@@ -4,6 +4,9 @@
   margin-bottom: 5%;
 }
 
+.guess-form > h2 {
+  margin-bottom: 10px;
+}
 .guess-form-row {
   display: flex;
   flex-direction: column;
@@ -11,6 +14,10 @@
 
 .guess-form-row > * {
   margin-bottom: 3%;
+}
+
+.guess-form-current-word {
+  margin-bottom: 10px;
 }
 
 
@@ -30,10 +37,10 @@
 }
 
 .guess-form-row > button {
-  width: 80px;
-  margin: 5% 0;
+  width: 100px;
+  margin: 3% 0;
   font-size: 16px;
-  height: 30px;
+  height: 60px;
   border: none;
   border-radius: 5px;
   background-color: rgb(108, 216, 108);

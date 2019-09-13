@@ -31,7 +31,7 @@ class AnswerDisplay extends React.Component {
     if (isCorrect) {
       return (
         <div className='learn-word-container'>
-          <section className='answer-display'>
+          <section className='DisplayScore'>
             <p className='answer-correct'>Correct!</p>
             <button onClick={this.props.handleNext}>Next</button>
           </section>
