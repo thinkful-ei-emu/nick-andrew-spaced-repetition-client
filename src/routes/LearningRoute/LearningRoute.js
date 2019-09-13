@@ -67,6 +67,7 @@ class LearningRoute extends Component {
 
   render() {
     const currentWord = this.context.currentWord;
+    console.log('current word', currentWord);
     const { loaded, hasAnswered, user_answer } = this.state;
 
     if (!loaded || !currentWord) {

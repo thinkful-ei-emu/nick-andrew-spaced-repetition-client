@@ -5,7 +5,7 @@ const LanguageContext = React.createContext({
   language: null,
   score: 0,
   words: [],
-  currentWord: {translation: ''},
+  currentWord: {},
   error: null,
   setScore: () => {},
   setLanguage: () => { },
@@ -24,7 +24,7 @@ class LanguageProvider extends React.Component {
       language: null,
       score: 0,
       words: [],
-      currentWord: {translation: ''},
+      currentWord: {},
       error: null
     };
   }
