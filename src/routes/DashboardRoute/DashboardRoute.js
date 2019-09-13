@@ -21,7 +21,10 @@ class DashboardRoute extends Component {
     try {
       const { language, words } = await LanguageService.getLanguage();
 
+      console.log(language);
+
       this.context.setLanguage(language.name);
+      this.context.setScore(language.total_score);
       this.context.setWords(words);
 
       this.setState({ loaded: true, });
@@ -45,7 +48,8 @@ class DashboardRoute extends Component {
   render() {
     let { error, loaded } = this.state;
     let language = this.context.language;
-    let score = this.calculateScore(this.context.words);
+    // let score = this.calculateScore(this.context.words);
+    let score = this.context.score;
 
     if (loaded) {
       return (
@@ -53,9 +57,9 @@ class DashboardRoute extends Component {
           <section className='dashboard'>
             <h2>{language}</h2>
             {error && <p className='error'>{error}</p>}
-            <p>Total Score: <strong>{score}</strong></p>
+            <p>Total correct answers: <strong>{score}</strong></p>
             <WordTable />
-            <button><Link to='/learn'>Learn</Link></button>
+            <button><Link to='/learn'>Start practicing</Link></button>
           </section>
         </div>
       );

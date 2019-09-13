@@ -18,7 +18,7 @@ const LanguageService = {
     return data;
   },
 
-  getLanguageHead: async () => {
+  getLanguageHead: async () => { 
     let data;
     try {
       let res = await fetch(`${config.API_ENDPOINT}/language/head` , {

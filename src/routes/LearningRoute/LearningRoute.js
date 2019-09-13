@@ -23,8 +23,12 @@ class LearningRoute extends Component {
   async componentDidMount() {
     try {
       let wordHead = await LanguageService.getLanguageHead();
+      let { words } = await LanguageService.getLanguage();
+
+      console.log(wordHead);
 
       this.context.setCurrentWord(wordHead);
+      this.context.setWords(words);
 
       this.setState({ loaded: true });
     }
@@ -77,17 +81,19 @@ class LearningRoute extends Component {
       return (
         <AnswerDisplay
           user_answer={user_answer}
+          translation={currentWord.translation}
           currWord={currentWord.nextWord}
           handleNext={this.handleNext}
+          totalScore={currentWord.totalScore}
         />
       );
     } else {
       return (
         <div className='learn-word-container'>
           <section className='learn-word'>
-            <p>Total Score: {currentWord.totalScore}</p>
+            <p>Your total score is: {currentWord.totalScore}</p>
             <h3 className='curr-word'>{currentWord.nextWord}</h3>
-            <GuessForm handleSubmit={this.handleSubmitGuess} />
+            <GuessForm handleSubmit={this.handleSubmitGuess} currWord={currentWord.nextWord} />
             <LearningTable
               correct={currentWord.wordCorrectCount}
               incorrect={currentWord.wordIncorrectCount}

@@ -27,7 +27,7 @@ describe(`User story: Go to next word`, function() {
       .as('postListGuess')
 
     cy.login().visit(`/learn`).wait('@languageHeadRequest')
-    cy.get('input#learn-guess-input').type('anything')
+    cy.get('input#user_guess').type('anything')
     cy.get('form').submit().wait('@postListGuess')
   })
 
@@ -53,7 +53,7 @@ describe(`User story: Go to next word`, function() {
       cy.get('label[for=learn-guess-input]')
         .should('have.text', `What's the translation for this word?`)
 
-      cy.get('input#learn-guess-input')
+      cy.get('input#user_guess')
         .should('have.attr', 'type', 'text')
         .and('have.attr', 'required', 'required')
 

@@ -27,10 +27,19 @@ class WordTable extends React.Component {
     });
   }
 
+  createList = (wordArr) => {
+    return wordArr.map((word, i )=> {
+      return (
+        <li key={i}><h4>{word.original}</h4>correct answer count: {word.correct_count} incorrect answer count: {word.incorrect_count}</li>
+      );
+    });
+  }
+
 
   render() {
     let words = this.context.words;
     let wordRows = this.createTableRows(words);
+    let wordList = this.createList(words);
 
     return (
       <div className='word-table-container'>
@@ -47,6 +56,10 @@ class WordTable extends React.Component {
             {wordRows}
           </tbody>
         </table>
+        <h3>Words to practice</h3>
+        <ul>
+          {wordList}
+        </ul>
       </div>
     );
   }

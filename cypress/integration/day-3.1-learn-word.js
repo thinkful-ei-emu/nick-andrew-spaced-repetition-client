@@ -53,7 +53,7 @@ describe(`User story: Presented with word`, function() {
       cy.get('label[for=learn-guess-input]')
         .should('have.text', `What's the translation for this word?`)
 
-      cy.get('input#learn-guess-input')
+      cy.get('input#user_guess')
         .should('have.attr', 'type', 'text')
         .and('have.attr', 'required', 'required')
 

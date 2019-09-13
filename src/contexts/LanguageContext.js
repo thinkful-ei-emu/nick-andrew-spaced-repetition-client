@@ -3,9 +3,11 @@ import React from 'react';
 
 const LanguageContext = React.createContext({
   language: null,
+  score: 0,
   words: [],
-  currentWord: {},
+  currentWord: {translation: ''},
   error: null,
+  setScore: () => {},
   setLanguage: () => { },
   setWords: () => {},
   setCurrentWord: () => {},
@@ -20,8 +22,9 @@ class LanguageProvider extends React.Component {
 
     this.state = {
       language: null,
+      score: 0,
       words: [],
-      currentWord: {},
+      currentWord: {translation: ''},
       error: null
     };
   }
@@ -57,6 +60,11 @@ class LanguageProvider extends React.Component {
     });
   }
 
+  setScore = (score) => {
+    this.setState({ score }, () => {console.log(this.state.score);});
+  }
+
+
   nextWord = () => {
     const currentWord = this.state.words.find(word =>
       word.id === this.state.currentWord.next);
@@ -84,9 +92,11 @@ class LanguageProvider extends React.Component {
   render() {
     const value = {
       language: this.state.language,
+      score: this.state.score,
       words: this.state.words,
       currentWord: this.state.currentWord,
       error: this.state.error,
+      setScore: this.setScore,
       setLanguage: this.setLanguage,
       setCurrentWord: this.setCurrentWord,
       setWords: this.setWords,
